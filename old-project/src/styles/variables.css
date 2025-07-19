@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: lightskyblue;
+  --background-color: blanchedalmond;
+  --border-color: gray;
+  --border-radius: 30px;
+  --border-radius-small: 15px;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+  
+  --header-width: 70%;
+  --header-height: 30vh;
+  --main-height: 55vh;
+}

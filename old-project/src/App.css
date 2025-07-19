@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+/* Responsywność dla App */
+@media (max-width: 768px) {
+  .App {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    margin: 5px;
+  }
+}

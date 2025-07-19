@@ -1,0 +1,208 @@
+.btn-space {
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  width: 30%;
+  height: 20%;
+  z-index: 5;
+}
+
+.btn1, .btn2 {
+  cursor: pointer;
+  border: 2px solid var(--border-color, gray);
+  background-color: var(--secondary-color, lightskyblue);
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px 15px;
+  color: white;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 0;
+  
+  /* Responsywna czcionka */
+  font-size: clamp(12px, 2.5vw, 20px);
+  
+  /* Zapobiega wychodzeniu tekstu */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn1:hover, .btn2:hover {
+  background-color: var(--primary-color, #007bff);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+.btn1:active, .btn2:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+}
+
+.btn1:focus, .btn2:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+/* Różne kolory dla buttonów */
+.btn1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.btn2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.btn1:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.btn2:hover {
+  background: linear-gradient(135deg, #ee82e9 0%, #f3455a 100%);
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+  .btn-space {
+    width: 35%;
+    gap: 12px;
+  }
+  
+  .btn1, .btn2 {
+    font-size: clamp(10px, 2.2vw, 18px);
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-space {
+    width: 40%;
+    height: 25%;
+    bottom: -12%;
+    gap: 10px;
+  }
+  
+  .btn1, .btn2 {
+    font-size: clamp(8px, 2vw, 16px);
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-space {
+    width: 50%;
+    height: 30%;
+    bottom: -15%;
+    gap: 8px;
+  }
+  
+  .btn1, .btn2 {
+    font-size: clamp(6px, 1.8vw, 14px);
+    padding: 5px 8px;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 320px) {
+  .btn-space {
+    width: 60%;
+    height: 35%;
+    bottom: -18%;
+    gap: 5px;
+  }
+  
+  .btn1, .btn2 {
+    font-size: clamp(6px, 1.5vw, 12px);
+    padding: 4px 6px;
+    border-radius: 5px;
+  }
+}
+
+/* Landscape orientation dla mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .btn-space {
+    bottom: -8%;
+    height: 35%;
+  }
+}
+
+/* Bardzo duże ekrany */
+@media (min-width: 1200px) {
+  .btn-space {
+    width: 25%;
+    gap: 20px;
+  }
+  
+  .btn1, .btn2 {
+    font-size: clamp(16px, 3vw, 22px);
+    padding: 12px 20px;
+    border-radius: 12px;
+  }
+}
+
+/* Dodatkowe efekty dla lepszego UX */
+.btn1:disabled, .btn2:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.btn1:disabled:hover, .btn2:disabled:hover {
+  background-color: #6c757d;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading state */
+.btn1.loading, .btn2.loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn1.loading::after, .btn2.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .btn1, .btn2 {
+    transition: none;
+  }
+  
+  .btn1:hover, .btn2:hover {
+    transform: none;
+  }
+  
+  .btn1.loading::after, .btn2.loading::after {
+    animation: none;
+  }
+}
+
+/* Focus visible dla lepszej dostępności */
+.btn1:focus-visible, .btn2:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
